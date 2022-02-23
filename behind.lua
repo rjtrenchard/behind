@@ -31,14 +31,22 @@ _addon.commands = {"behind"}
 
 require('images')
 require('tables')
+math = require('math')
 
 do_event = nil
 
-function display_icon() 
+-- pi / 2 radians for a 90 degree zone
+behind_angle = math.pi / 2
 
+function display_icon()
+    -- get target position (x/y) and heading
+    -- get player position (x/y)
+    -- if player position is within radians of the behind angle, display an image
+    -- else display no image, or a no symbol?
 end
 
-function calculate_if_behind() 
+function calculate_if_behind(target_x, target_y, target_heading, player_x, player_y)
+    -- 
 end
 
 windower.register_event('target change', function(idx)
@@ -46,7 +54,7 @@ windower.register_event('target change', function(idx)
 
     -- only draw/calculate if we have a valid target
     if t then
-        do_event = windower.register_event('prerender', display_icon())
+        do_event = windower.register_event('prerender', display_icon)
     else
         windower.unregister_event(do_event)
     end
